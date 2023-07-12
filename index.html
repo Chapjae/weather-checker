@@ -22,27 +22,35 @@
 
 <body>
   <h1>Weather Dashboard</h1>
-
-    <div class="container row">
-      <input class="search-by-city form-control-lg"></input>
-      <button type="button" class="btn btn-primary">Search a City's Weather</button>
-      <hr class = "my-4"> 
-      <ul id="searched-cities" class="list-group">
-       
-      </ul>
-
-      <div class="jumbotron col-9">
-        <h1 id="city-name"class="display-4"></h1>
+<!-- 
+  <div class="container justify-content-start"> -->
+    <div class="row align-items-start">
+      <div class="col">
+        <input class="search-by-city form-control-lg"></input>
+        <button type="button" class="btn btn-primary">Search a City's Weather</button>
+        <hr class = "my-4"> 
+        <ul id="searched-cities" class="list-group">
+        </ul>
+      </div>
+      
+      
+      <div class="jumbotron row border col-9">
+        <h1 id="city-name"class="display-4">test</h1>
         <div id="temp" class="lead"></div>
         <div id="wind"></div>
         <div id="humidity"></div>
       </div>
     </div>
+  </div>
     
-    <div id="five-day-forecast" class="row">
+    
+    <div id="five-day-forecast" class="row ">
       <h2>Here's your 5-Day Forecast with Brick Tamland</h2>
         
-        <div class="card" style="width: 18rem;">
+      <div class="container overflow-hidden text-center">
+        <div class="row gy-5">
+        
+          <div class="card p-3" style="width: 18rem;">
             <div class="card-body">
               <h5 id="day0"></h5>
               <img id="img0" src="">
@@ -50,47 +58,49 @@
               <p id="wind0"></p>
               <p id="humid0"></p>
             </div>
-        </div>
+          </div>
         
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 id="day1"></h5>
-              <img id="img1" src="">
-              <p id="temp1"></p>
-              <p id="wind1"></p>
-              <p id="humid1"></p>
-            </div>
+          <div class="card p-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id="day1"></h5>
+                <img id="img1" src="">
+                <p id="temp1"></p>
+                <p id="wind1"></p>
+                <p id="humid1"></p>
+              </div>
+          </div>
+
+          <div class="card p-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id="day2"></h5>
+                <img id="img2" src="">
+                <p id="temp2"></p>
+                <p id="wind2"></p>
+                <p id="humid2"></p>
+              </div>
+          </div>
+
+          <div class="card p-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id="day3"></h5>
+                <img id="img3" src="">
+                <p id="temp3"></p>
+                <p id="wind3"></p>
+                <p id="humid3"></p>
+              </div>
+          </div>
+
+          <div class="card p-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id="day4"></h5>
+                <img id="img4" src="">
+                <p id="temp4"></p>
+                <p id="wind4"></p>
+                <p id="humid4"></p>
+              </div>
+          </div>
         </div>
-        
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 id="day2"></h5>
-              <img id="img2" src="">
-              <p id="temp2"></p>
-              <p id="wind2"></p>
-              <p id="humid2"></p>
-            </div>
-        </div>
-        
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 id="day3"></h5>
-              <img id="img3" src="">
-              <p id="temp3"></p>
-              <p id="wind3"></p>
-              <p id="humid3"></p>
-            </div>
-        </div>
-        
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 id="day4"></h5>
-              <img id="img4" src="">
-              <p id="temp4"></p>
-              <p id="wind4"></p>
-              <p id="humid4"></p>
-            </div>
-        </div>
+      </div>
     </div>
 
 <script src="/assets/script.js"></script>
