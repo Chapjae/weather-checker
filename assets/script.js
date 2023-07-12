@@ -59,10 +59,11 @@ function getFiveDayForecast(lat, lon){
                 var fiveDayWind = document.getElementById(`wind${i}`)
                 var fiveDayHumid = document.getElementById(`humid${i}`)
                 var fiveDayIcon = document.getElementById(`img${i}`)
+                var fiveDayDate = dayjs()
 
-                fiveDayDay.innerText = currentDay
+                fiveDayDay.innerText = fiveDayDate.add(i, "day")
                 fiveDayIcon.src = `http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`
-                fiveDayTemp.innerText = (data.list[i].temp.day)
+                fiveDayTemp.innerText = (data.list[i].temp.day + " °f")
                 fiveDayWind.innerText = (data.list[i].speed)
                 fiveDayHumid.innerText = (data.list[i].humidity)
             }    
