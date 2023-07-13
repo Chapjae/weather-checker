@@ -16,23 +16,27 @@ function getCityData(city) {
             var lon = data.coord.lon
             
         if (data.cod == 200) {
-            var city = document.getElementsByClassName("search-by-city").value
-            var citiesLi = document.createElement("li") 
-            var icons = document.createElement("img")
-            var cityUl = document.getElementById("searched-cities")
+            var citySearch = document.getElementById("searchInput").value;
+            var citiesLi = document.createElement("li");
+            var icons = document.createElement("img");
+            var cityUl = document.getElementById("searched-cities");
+            var city = document.getElementById("city-name");
+            var temp = document.getElementById("temp");
+            var wind = document.getElementById("wind");
+            var humid = document.getElementById("humidity");
         
-            icons.src=`http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+            icons.src=`https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+            
             citiesLi.classList.add("city-group")
-            
-            citiesLi.addEventListener("click", function(){
-
-            })
-            
+            citiesLi.textContent += citySearch
             cityUl.append(citiesLi)
-            $("#city-name").text(data.name + " " + currentDay + "   ").append(icons)
-            $("#temp").text("Temperature: " + data.main.temp + " °f")
-            $("#wind").text("Wind speed: " + data.wind.speed)
-            $("#humidity").text("Humidity: " + data.main.humidity)
+            
+            city.textContent = data.name + " " + currentDay + "   ";
+            city.appendChild(icons)
+            
+            temp.textContent +="Temperature: " + data.main.temp + " °f"
+            wind.textContent +="Wind speed: " + data.wind.speed
+            humid.textContent +="Humidity: " + data.main.humidity
             }
 
         getFiveDayForecast(lat, lon)
@@ -52,7 +56,7 @@ $(".btn").on("click", function() {
 // `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=`
 
 function getFiveDayForecast(lat, lon){
-    var requestUrl = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=72848a6e5462cfcb20726fb97310cab3&units=imperial`
+    var requestUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=72848a6e5462cfcb20726fb97310cab3&units=imperial`
     
     fetch(requestUrl)
         .then(function (response) {
