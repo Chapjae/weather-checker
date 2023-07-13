@@ -29,9 +29,16 @@ function getCityData(city) {
             
             citiesLi.classList.add("city-group")
             citiesLi.textContent = citySearch
-            cityUl.append(citiesLi)
             
-            city.textContent = data.name + " " + currentDay + "   ";
+            var existingLi = Array.from(cityUl.getElementsByTagName("li")).find(function(li) {
+                return li.textContent === citySearch;
+            });
+
+            if(!existingLi) {
+                cityUl.appendChild(citiesLi)
+            }
+            
+            city.textContent = "City: " + data.name + " " + currentDay + "   ";
             city.appendChild(icons)
             
             temp.textContent ="Temperature: " + data.main.temp + " °f"
@@ -39,8 +46,9 @@ function getCityData(city) {
             humid.textContent ="Humidity: " + data.main.humidity
             
             citiesLi.addEventListener("click", function() {
-                getCityData(this.textContent)
+                getCityData(this.textContent);
             })
+            
         }
 
         getFiveDayForecast(lat, lon)
@@ -59,7 +67,6 @@ $(".btn").on("click", function() {
     var city = $(".search-by-city").val()
     getCityData(city)
 })
-// `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=`
 
 function getFiveDayForecast(lat, lon){
     var requestUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=72848a6e5462cfcb20726fb97310cab3&units=imperial`
@@ -84,8 +91,5 @@ function getFiveDayForecast(lat, lon){
                 fiveDayWind.innerText = (data.list[i].speed)
                 fiveDayHumid.innerText = (data.list[i].humidity)
             }    
-            
-            // $(".img1").src = (`http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`)
-        
         })
 }
