@@ -16,12 +16,19 @@ function getCityData(city) {
             var lon = data.coord.lon
             
         if (data.cod == 200) {
-            var city = $(".search-by-city").val();
-            var citiesLi = $("<li></li>").text(city)
-            var icons = $("<img>").attr("src", `http://openweathermap.org/img/w/${data.weather[0].icon}.png`)   
-            citiesLi.addClass("city-group")
+            var city = document.getElementsByClassName("search-by-city").value
+            var citiesLi = document.createElement("li") 
+            var icons = document.createElement("img")
+            var cityUl = document.getElementById("searched-cities")
+        
+            icons.src=`http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+            citiesLi.classList.add("city-group")
             
-            $("#searched-cities").append(citiesLi)
+            citiesLi.addEventListener("click", function(){
+
+            })
+            
+            cityUl.append(citiesLi)
             $("#city-name").text(data.name + " " + currentDay + "   ").append(icons)
             $("#temp").text("Temperature: " + data.main.temp + " °f")
             $("#wind").text("Wind speed: " + data.wind.speed)
