@@ -28,16 +28,20 @@ function getCityData(city) {
             icons.src=`https://openweathermap.org/img/w/${data.weather[0].icon}.png`
             
             citiesLi.classList.add("city-group")
-            citiesLi.textContent += citySearch
+            citiesLi.textContent = citySearch
             cityUl.append(citiesLi)
             
             city.textContent = data.name + " " + currentDay + "   ";
             city.appendChild(icons)
             
-            temp.textContent +="Temperature: " + data.main.temp + " °f"
-            wind.textContent +="Wind speed: " + data.wind.speed
-            humid.textContent +="Humidity: " + data.main.humidity
-            }
+            temp.textContent ="Temperature: " + data.main.temp + " °f"
+            wind.textContent ="Wind speed: " + data.wind.speed
+            humid.textContent ="Humidity: " + data.main.humidity
+            
+            citiesLi.addEventListener("click", function() {
+                getCityData(this.textContent)
+            })
+        }
 
         getFiveDayForecast(lat, lon)
         })
@@ -48,6 +52,8 @@ function getCityData(city) {
         })
     
 }
+
+
 
 $(".btn").on("click", function() {
     var city = $(".search-by-city").val()
