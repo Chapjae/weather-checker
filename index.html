@@ -22,9 +22,9 @@
 
 <body>
   <h1>Weather Dashboard</h1>
-<!-- 
-  <div class="container justify-content-start"> -->
-    <div class="row align-items-start">
+
+  <!-- <div class="container justify-content-start"> -->
+    <div class="row">
       <div class="col-3">
         <input id="searchInput"class="search-by-city form-control-lg"></input>
         <button type="button" class="btn btn-primary">Search a City's Weather</button>
@@ -35,7 +35,7 @@
       
       
       <div class="jumbotron row border col-9">
-        <h1 id="city-name"class="display-4">City:</h1>
+        <h1 id="city-name"class="display-1">City:</h1>
         <div id="temp" class="lead">Temperature:</div>
         <div id="wind">Wind:</div>
         <div id="humidity">Humidity:</div>
@@ -44,13 +44,13 @@
   </div>
     
     
-    <div id="five-day-forecast" class="row ">
+    <div id="five-day-forecast" class="row border">
       <h2>Here's your 5-Day Forecast with Brick Tamland</h2>
         
-      <div class="container overflow-hidden text-center">
+      <div class="container overflow-hidden text-center d-flex align-items-center">
         <div class="row gy-5">
         
-          <div class="card p-3" style="width: 18rem;">
+          <div class="card p-3 bg-secondary" style="width: 18rem;">
             <div class="card-body">
               <h5 id="day0">Date:</h5>
               <img id="img0" src="">
@@ -60,7 +60,7 @@
             </div>
           </div>
         
-          <div class="card p-3" style="width: 18rem;">
+          <div class="card p-3 bg-light" style="width: 18rem;">
               <div class="card-body">
                 <h5 id="day1">Date:</h5>
                 <img id="img1" src="">
@@ -70,17 +70,17 @@
               </div>
           </div>
 
-          <div class="card p-3" style="width: 18rem;">
+          <div class="card p-3 bg-dark" style="width: 18rem;">
               <div class="card-body">
-                <h5 id="day2">Date:</h5>
+                <h5 id="day2" class="text-white">Date:</h5>
                 <img id="img2" src="">
-                <p id="temp2">Temp:</p>
-                <p id="wind2">Wind:</p>
-                <p id="humid2">Humidity:</p>
-              </div>
+                <p id="temp2" class="text-white">Temp:</p>
+                <p id="wind2" class="text-white">Wind:</p>
+                <p id="humid2" class="text-white">Humidity:</p>
+              </div> 
           </div>
 
-          <div class="card p-3" style="width: 18rem;">
+          <div class="card p-3 bg-light" style="width: 18rem;">
               <div class="card-body">
                 <h5 id="day3">Date:</h5>
                 <img id="img3" src="">
@@ -90,7 +90,7 @@
               </div>
           </div>
 
-          <div class="card p-3" style="width: 18rem;">
+          <div class="card p-3 bg-secondary" style="width: 18rem;">
               <div class="card-body">
                 <h5 id="day4">Date:</h5>
                 <img id="img4" src="">

@@ -1,6 +1,14 @@
-
 var currentDay = dayjs().format("MMM-DD-YYYY")
+var loadSearchedCities = JSON.parse(localStorage.getItem("searchedCities"))
+// var parseSearchedCities = (loadSearchedCities)
+var cityUl = document.getElementById("searched-cities")
 
+loadSearchedCities.forEach(function(loadSearchedCities) {
+    var citiesLi = document.createElement("li");
+    citiesLi.classList.add("city-group", "list-group-item", "list-group-item-action",  "active")
+    citiesLi.textContent = loadSearchedCities
+    cityUl.appendChild(citiesLi)
+})
 
 
 function getCityData(city) {
@@ -27,7 +35,7 @@ function getCityData(city) {
         
             icons.src=`https://openweathermap.org/img/w/${data.weather[0].icon}.png`
             
-            citiesLi.classList.add("city-group")
+            citiesLi.classList.add("city-group", "list-group-item", "list-group-item-action",  "active")
             citiesLi.textContent = citySearch
             
             var existingLi = Array.from(cityUl.getElementsByTagName("li")).find(function(li) {
@@ -49,6 +57,12 @@ function getCityData(city) {
                 getCityData(this.textContent);
             })
             
+            var liElements = Array.from(cityUl.getElementsByTagName("li"));
+            var cityTexts = liElements.map(function(li) {
+              return li.textContent;
+            });
+
+            localStorage.setItem("searchedCities", JSON.stringify(cityTexts));
         }
 
         getFiveDayForecast(lat, lon)
@@ -60,8 +74,6 @@ function getCityData(city) {
         })
     
 }
-
-
 
 $(".btn").on("click", function() {
     var city = $(".search-by-city").val()
