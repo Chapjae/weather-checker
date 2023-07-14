@@ -23,8 +23,8 @@
 <body>
   <h1>Weather Dashboard</h1>
 
-  <div class="container justify-content-start row">
-      <div class="col-3 ">
+  <div class="container d-flex justify-content-start row">
+      <div class="col-3">
         <input id="searchInput"class="search-by-city form-control-lg"></input>
         <button type="button" id="searchcity" class="btn btn-primary">Search a City's Weather</button>
         <button type="button" id="clearsearch" class="btn btn-danger">Clear History</button>
@@ -33,7 +33,7 @@
         </ul>
   </div>  
       
-      <div class="jumbotron row border col-9">
+      <div class="jumbotron row d-flex border col-9">
         <h1 id="city-name"class="display-1">City:</h1>
         <div id="temp" class="lead display-2">Temperature:</div>
         <div id="wind" class="display-3">Wind:</div>
