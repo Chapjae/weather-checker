@@ -1,14 +1,19 @@
 var currentDay = dayjs().format("MMM-DD-YYYY")
 var loadSearchedCities = JSON.parse(localStorage.getItem("searchedCities"))
-// var parseSearchedCities = (loadSearchedCities)
 var cityUl = document.getElementById("searched-cities")
+var clearhistorybtn = document.getElementById("clearsearch")
 
-loadSearchedCities.forEach(function(loadSearchedCities) {
-    var citiesLi = document.createElement("li");
-    citiesLi.classList.add("city-group", "list-group-item", "list-group-item-action",  "active")
-    citiesLi.textContent = loadSearchedCities
-    cityUl.appendChild(citiesLi)
-})
+if(loadSearchedCities){
+    loadSearchedCities.forEach(function(loadSearchedCities) {
+        var citiesLi = document.createElement("li");
+        citiesLi.classList.add("city-group", "list-group-item", "list-group-item-action",  "active")
+        citiesLi.textContent = loadSearchedCities
+        cityUl.appendChild(citiesLi)
+        citiesLi.addEventListener("click", function() {
+            getCityData(this.textContent);
+        })
+    })
+}
 
 
 function getCityData(city) {
@@ -75,10 +80,15 @@ function getCityData(city) {
     
 }
 
-$(".btn").on("click", function() {
+$("#searchcity").on("click", function() {
     var city = $(".search-by-city").val()
     getCityData(city)
 })
+
+document.getElementById("clearsearch").addEventListener("click", function() {
+    cityUl.textContent = '';
+    localStorage.clear();
+});
 
 function getFiveDayForecast(lat, lon){
     var requestUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=72848a6e5462cfcb20726fb97310cab3&units=imperial`
